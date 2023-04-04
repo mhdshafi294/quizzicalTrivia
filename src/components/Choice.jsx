@@ -9,8 +9,12 @@ function Choice(props) {
 }
 
   return (
-    <div className="choice">
-        Adiós
+    <div 
+      className="choice"
+      style={styles}
+      onClick={props.holdDice}
+    >
+        {props.value}
     </div>
   )
 }
