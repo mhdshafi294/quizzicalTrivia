@@ -10,10 +10,40 @@
     line-height: 19px;
     color: #293264;
     margin-bottom: 12px;
+    max-width: 362px
 }
 
 .question .choices{
     display: flex;
     align-items: flex-end;
     gap: 13px;
+}
+
+.question button{
+    background: #4D5B9E;
+    border-radius: 15px;
+    width: 193px;
+    height: 52px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #F5F7FB;
+    cursor: pointer;
+    border: none;
+    outline: inherit;
+}
+
+.question button:active{
+    box-shadow: inset 5px 5px 10px -3px rgba(17, 16, 17, 0.7);
+}
+
+.hr{
+    margin-top: 15px;
+    width: 399px;
+    height: 0px;
+    border: 0.794239px solid #DBDEF0;
+    transform: rotate(-0.05deg);
 }
