@@ -5,29 +5,31 @@ import './Question.css'
 
 
 function Question(props) {
-  const [answers, setAnswers] = React.useState(newChoices());
+  const [answers, setAnswers] = React.useState(allNewAnswer());
 
-
-function newChoices() {
-    const newChoices = []
-    for (let i = 0; i < 4; i++) {
-      newChoices.push({
-        value: props.choices[i],
+  function generateNewAnswer() {
+    return {
+        value: "Adiós",
         isHeld: false,
         id: nanoid()
-    })
     }
-    return newChoices
+}
+
+function allNewAnswer() {
+    const newAnswers = []
+    for (let i = 0; i < 4; i++) {
+      newAnswers.push(generateNewAnswer())
+    }
+    return newAnswers
 }
 
 function holdAnswer(id) {
   setAnswers(oldAnswers => oldAnswers.map(answer => {
       return answer.id === id ? 
           {...answer, isHeld: !answer.isHeld} :
-          {...answer, isHeld: false}
+          answer
   }))
 }
-
 
 const answerChoices = answers.map(answer => (
   <Choice 
@@ -40,11 +42,10 @@ const answerChoices = answers.map(answer => (
 
   return (
     <div className="question">
-      <p>{props.question}</p>
+      <p>How would one say goodbye in Spanish?</p>
       <div className="choices">
         {answerChoices}
       </div>
-      <div className="hr"></div>
     </div>
   )
 }
