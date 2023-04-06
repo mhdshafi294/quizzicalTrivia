@@ -7,7 +7,6 @@ import './Question.css'
 function Question(props) {
   const [answers, setAnswers] = React.useState(newChoices());
 
-
 function newChoices() {
     const newChoices = []
     for (let i = 0; i < 4; i++) {

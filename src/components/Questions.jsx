@@ -5,7 +5,7 @@ import Question from './Question'
 
 function Questions(props) {
   const [allQuestions, setAllQuestions] = React.useState([])
-  const [allQuestionsChecked, setAllQuestionsChecked] = React.useState(true)
+  const [allQuestionsChecked, setAllQuestionsChecked] = React.useState(false)
 
   React.useEffect(() => {
     fetch("https://opentdb.com/api.php?amount=5&category=9&type=multiple")

@@ -10,7 +10,7 @@
     line-height: 19px;
     color: #293264;
     margin-bottom: 12px;
-    max-width: 362px
+    max-width: 65%;
 }
 
 .question .choices{
@@ -42,7 +42,7 @@
 
 .hr{
     margin-top: 15px;
-    width: 399px;
+    width: 90%;
     height: 0px;
     border: 0.794239px solid #DBDEF0;
     transform: rotate(-0.05deg);
