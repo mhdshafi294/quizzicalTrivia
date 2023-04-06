@@ -13,18 +13,6 @@ function Questions(props) {
         .then(data => setAllQuestions(data.results))
   }, [])
 
-  console.log(allQuestions)
-
-  function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-    return array;
-  }
-
   let questions = allQuestions.map(quest => {
     let answerChoices = shuffle([quest.correct_answer, ...quest.incorrect_answers])
     return(
@@ -35,6 +23,16 @@ function Questions(props) {
       />
     )
   })
+
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
 
   return (
     <div className="questions">
