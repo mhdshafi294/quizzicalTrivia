@@ -1,5 +1,5 @@
 .questions{
-    margin-top: 40px;
+    margin-top: 20px;
     margin-left: 70px;
 }
 
@@ -15,4 +15,45 @@ hr{
     height: 0px;
     border: 0.794239px solid #DBDEF0;
     transform: rotate(-0.05deg);
+}
+
+.finish{
+    display: flex;
+    justify-content: flex-start;
+    gap:25px;
+    align-items: center;
+    margin-bottom: 25px;
+    margin-top: 20px;
+    padding-left: 100px;
+}
+
+.finish p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 15px;
+    text-align: center;
+    color: #293264;
+}
+
+.questions .finish button{
+    width: 120px;
+    height: 35px;   
+    background: #4D5B9E;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    outline: inherit;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10.24px;
+    line-height: 12px;
+    text-align: center;
+    color: #F5F7FB;
+}
+
+.questions .finish button:active{
+    box-shadow: inset 5px 5px 10px -3px rgba(17, 16, 17, 0.7);
 }
