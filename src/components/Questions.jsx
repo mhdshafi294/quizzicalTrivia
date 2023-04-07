@@ -6,11 +6,11 @@ import Confetti from "react-confetti"
 
 
 function Questions(props) {
+  const [playAgain, setPlayAgain] = React.useState(0)
+  const [correctAnswers, setCorrectAnswers] = React.useState(0)
+  const [allQuestionsChecked, setAllQuestionsChecked] = React.useState(false)
   const [allQuestions, setAllQuestions] = React.useState([])
   const [allOnQuestions, setAllOnQuestions] = React.useState([])
-  const [allQuestionsChecked, setAllQuestionsChecked] = React.useState(false)
-  const [correctAnswers, setCorrectAnswers] = React.useState(0)
-  const [playAgain, setPlayAgain] = React.useState(0)
 
   React.useEffect(() => {
     fetch("https://opentdb.com/api.php?amount=5&category=9&type=multiple")
@@ -84,7 +84,6 @@ function Questions(props) {
   }
 
   function handlePlayAgain(){
-    console.log(allOnQuestions)
     setCorrectAnswers(0)
     setAllQuestionsChecked(false)
     setPlayAgain(prev => prev + 1)
