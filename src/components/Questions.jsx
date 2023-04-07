@@ -115,7 +115,7 @@ function Questions(props) {
 
   return (
     <div className="questions">
-      {/* {correctAnswers === 5 && <Confetti />} */}
+      {/* {correctAnswers === 10 && <Confetti />} */}
       {questions}
       <div className="finish">
         {allQuestionsChecked && <p>You scored {correctAnswers}/5 correct answers</p>}
