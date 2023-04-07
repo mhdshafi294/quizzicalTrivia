@@ -15,14 +15,14 @@ function Choice(props) {
       checkedBackGround = "#F8BCBC";
       borderColor="none";
     }else {
-      checkedBackGround = "white";
+      checkedBackGround = "#F5F7FB";
       borderColor="0.794239px solid #4D5B9E";
     }
   }else if(props.isHeld){
     checkedBackGround = "#D6DBF5";
     borderColor="none";
   }else{
-    checkedBackGround = "white";
+    checkedBackGround = "#F5F7FB";
     borderColor="0.794239px solid #4D5B9E";
   }
 
