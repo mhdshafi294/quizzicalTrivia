@@ -2,7 +2,7 @@ import React from 'react'
 import './Questions.css'
 import Question from './Question'
 import {nanoid} from "nanoid"
-// import Confetti from "react-confetti"
+import Confetti from "react-confetti"
 
 
 function Questions(props) {
@@ -21,19 +21,6 @@ function Questions(props) {
   React.useEffect(() => {
     setAllOnQuestions(newQuestions())
   }, [allQuestions])
-
-  let questions = allOnQuestions.map(quest => {
-    return(
-      <Question
-        key={quest.id}
-        id={quest.id}
-        question={quest.question}
-        choices={quest.choices}
-        correct={quest.correct}
-        holdAnswer={holdAnswer}
-      />
-    )
-  })
 
   function newQuestions(){
     let onQuestions = allQuestions.map(quest => {
@@ -66,6 +53,7 @@ function Questions(props) {
   function holdAnswer(idQestion, idAnswer) {
     setAllOnQuestions(prevs => prevs.map(question => {
       if(question.id === idQestion){
+        console.log(question)
         let newAnswers = question.choices.map(answer => {
           if(answer.id === idAnswer){
             return {...answer, isHeld: !answer.isHeld}
@@ -82,8 +70,8 @@ function Questions(props) {
 
   function checkAnswers(){
     setCorrectAnswers(0)
+    setAllQuestionsChecked(true)
     setAllOnQuestions(prev => prev.map(question => {
-      console.log(question)
       for(let i = 0; i< 4; i++){
         if(question.choices[i].isHeld && question.choices[i].correct){
           console.log("correct answer")
@@ -93,7 +81,6 @@ function Questions(props) {
       }
       return {...question, checked: true}
     }))
-    setAllQuestionsChecked(true)
   }
 
   function handlePlayAgain(){
@@ -113,12 +100,26 @@ function Questions(props) {
     return array;
   }
 
+  let questions = allOnQuestions.map(quest => {
+    return(
+      <Question
+        key={quest.id}
+        id={quest.id}
+        question={quest.question}
+        choices={quest.choices}
+        correct={quest.correct}
+        holdAnswer={holdAnswer}
+        checked={quest.checked}
+      />
+    )
+  })
+
   return (
     <div className="questions">
-      {/* {correctAnswers === 10 && <Confetti />} */}
+      {allQuestionsChecked && correctAnswers === 10 && <Confetti />}
       {questions}
       <div className="finish">
-        {allQuestionsChecked && <p>You scored {correctAnswers}/5 correct answers</p>}
+        {allQuestionsChecked && <p>You scored {correctAnswers/2}/5 correct answers</p>}
         {allQuestionsChecked? <button onClick={handlePlayAgain}>Play Again</button> : <button onClick={checkAnswers}>Check answers</button>}
       </div>
     </div>

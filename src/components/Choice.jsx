@@ -3,9 +3,32 @@ import './Choice.css'
 
 
 function Choice(props) {
+
+  let checkedBackGround ="";
+  let borderColor="";
+
+  if(props.checked){
+    if(props.correct){
+      checkedBackGround = "#94D7A2";
+      borderColor="none";
+    }else if (props.isHeld){
+      checkedBackGround = "#F8BCBC";
+      borderColor="none";
+    }else {
+      checkedBackGround = "white";
+      borderColor="0.794239px solid #4D5B9E";
+    }
+  }else if(props.isHeld){
+    checkedBackGround = "#D6DBF5";
+    borderColor="none";
+  }else{
+    checkedBackGround = "white";
+    borderColor="0.794239px solid #4D5B9E";
+  }
+
   const styles = {
-    backgroundColor: props.isHeld ? "#D6DBF5" : "white",
-    border: !props.isHeld ? "0.794239px solid #4D5B9E" : "none",
+    backgroundColor: checkedBackGround,
+    border: borderColor,
 }
 
   return (
@@ -14,7 +37,7 @@ function Choice(props) {
       style={styles}
       onClick={props.holdDice}
     >
-        {props.value}
+        <div dangerouslySetInnerHTML={{ __html: props.value }} />
     </div>
   )
 }

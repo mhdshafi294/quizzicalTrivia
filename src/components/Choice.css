@@ -1,12 +1,11 @@
 .choice{
-    height: 21px;
     border-radius: 8px;
-    padding: 4px 19px;
+    padding: 5px 19px;
     display: inline-block;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 12px;
     text-align: center;
     color: #293264;

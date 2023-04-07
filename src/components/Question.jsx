@@ -1,5 +1,4 @@
 import React from 'react'
-import {nanoid} from "nanoid"
 import Choice from './Choice'
 import './Question.css'
 
@@ -13,12 +12,14 @@ function Question(props) {
         value={answer.value} 
         isHeld={answer.isHeld} 
         holdDice={() => props.holdAnswer(props.id, answer.id)}
+        correct={answer.correct}
+        checked={props.checked}
     />)
     })
 
   return (
     <div className="question">
-      <p>{props.question}</p>
+      <p><div dangerouslySetInnerHTML={{ __html: props.question }} /></p>
       <div className="choices">
         {answerChoices}
       </div>
