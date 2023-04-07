@@ -2,6 +2,7 @@ import React from 'react'
 import './Questions.css'
 import Question from './Question'
 import {nanoid} from "nanoid"
+// import Confetti from "react-confetti"
 
 
 function Questions(props) {
@@ -9,12 +10,13 @@ function Questions(props) {
   const [allOnQuestions, setAllOnQuestions] = React.useState([])
   const [allQuestionsChecked, setAllQuestionsChecked] = React.useState(false)
   const [correctAnswers, setCorrectAnswers] = React.useState(0)
+  const [playAgain, setPlayAgain] = React.useState(0)
 
   React.useEffect(() => {
     fetch("https://opentdb.com/api.php?amount=5&category=9&type=multiple")
         .then(res => res.json())
         .then(data => setAllQuestions(data.results))
-  }, [])
+  }, [playAgain])
 
   React.useEffect(() => {
     setAllOnQuestions(newQuestions())
@@ -55,6 +57,7 @@ function Questions(props) {
         question: quest.question,
         choices: choices,
         correct: quest.correct_answer,
+        checked:false
       }
     })
     return onQuestions
@@ -78,9 +81,26 @@ function Questions(props) {
   }
 
   function checkAnswers(){
-    allOnQuestions.map(question => {
-      return question
-    })
+    setCorrectAnswers(0)
+    setAllOnQuestions(prev => prev.map(question => {
+      console.log(question)
+      for(let i = 0; i< 4; i++){
+        if(question.choices[i].isHeld && question.choices[i].correct){
+          console.log("correct answer")
+          setCorrectAnswers(prev => prev + 1)
+          break
+        }
+      }
+      return {...question, checked: true}
+    }))
+    setAllQuestionsChecked(true)
+  }
+
+  function handlePlayAgain(){
+    console.log(allOnQuestions)
+    setCorrectAnswers(0)
+    setAllQuestionsChecked(false)
+    setPlayAgain(prev => prev + 1)
   }
 
   function shuffle(array) {
@@ -95,10 +115,11 @@ function Questions(props) {
 
   return (
     <div className="questions">
+      {/* {correctAnswers === 5 && <Confetti />} */}
       {questions}
       <div className="finish">
         {allQuestionsChecked && <p>You scored {correctAnswers}/5 correct answers</p>}
-        {allQuestionsChecked? <button>Play Again</button> : <button>Check answers</button>}
+        {allQuestionsChecked? <button onClick={handlePlayAgain}>Play Again</button> : <button onClick={checkAnswers}>Check answers</button>}
       </div>
     </div>
   )

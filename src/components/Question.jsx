@@ -5,37 +5,6 @@ import './Question.css'
 
 
 function Question(props) {
-  // const [answers, setAnswers] = React.useState(newChoices());
-
-  // function newChoices() {
-  //     const newChoices = []
-  //     for (let i = 0; i < 4; i++) {
-  //       newChoices.push({
-  //         value: props.choices[i].value,
-  //         isHeld: props.choices[i].isHeld,
-  //         id: props.choices[i].id
-  //     })
-  //     }
-  //     return newChoices
-  // }
-
-  function holdAnswerOld(id) {
-    setAnswers(oldAnswers => oldAnswers.map(answer => {
-        return answer.id === id ? 
-            {...answer, isHeld: !answer.isHeld} :
-            {...answer, isHeld: false}
-    }))
-  }
-
-  // const answerChoices = answers.map(answer => (
-  //   <Choice 
-  //       key={answer.id} 
-  //       value={answer.value} 
-  //       isHeld={answer.isHeld} 
-  //       holdDice={() => holdAnswer(answer.id)}
-  //   />
-  // ))
-
 
   const answerChoices = props.choices.map(answer => {
     return (
