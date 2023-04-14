@@ -1,7 +1,7 @@
 # quizzicalTrivia
 
 This is the final solo project in a Scrimba React.js course. It is a quiz course that use API for new questions each time.
-Download it and test yout general knowldge, or you can visit this link https://reliable-dango-2f618a.netlify.app/ to try it directly.
+Download it and test your general knowldge, or you can visit this link https://reliable-dango-2f618a.netlify.app/ to try it directly.
 Have fun!
 I would love any feedback.
 
