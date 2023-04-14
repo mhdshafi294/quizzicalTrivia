@@ -115,10 +115,10 @@ function Questions(props) {
 
   return (
     <div className="questions">
-      {allQuestionsChecked && correctAnswers === 10 && <Confetti />}
+      {allQuestionsChecked && correctAnswers === 5 && <Confetti />}
       {questions}
       <div className="finish">
-        {allQuestionsChecked && <p>You scored {correctAnswers/2}/5 correct answers</p>}
+        {allQuestionsChecked && <p>You scored {correctAnswers}/5 correct answers</p>}
         {allQuestionsChecked? <button onClick={handlePlayAgain}>Play Again</button> : <button onClick={checkAnswers}>Check answers</button>}
       </div>
     </div>
