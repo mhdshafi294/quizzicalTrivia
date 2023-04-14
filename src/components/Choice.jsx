@@ -8,10 +8,13 @@ function Choice(props) {
   let borderColor="";
 
   if(props.checked){
-    if(props.correct){
+    if(props.correct && props.isHeld){
       checkedBackGround = "#94D7A2";
       borderColor="none";
-    }else if (props.isHeld){
+    }else if (props.correct && !props.isHeld){
+      checkedBackGround = "#94d7a266";
+      borderColor="none";
+    }else if (!props.correct && props.isHeld){
       checkedBackGround = "#F8BCBC";
       borderColor="none";
     }else {
