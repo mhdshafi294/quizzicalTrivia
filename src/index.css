@@ -8,4 +8,7 @@ body {
     font-family: 'Karla', sans-serif;
     color: #293264;
     background: #F5F7FB;
+    background-image: url(../../public/blobs.png), url(../../public/blob5.png);
+    background-position: left bottom, right top;
+    background-repeat: no-repeat, no-repeat;
 }

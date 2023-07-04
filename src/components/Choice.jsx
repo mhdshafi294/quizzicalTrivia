@@ -32,7 +32,7 @@ function Choice(props) {
   const styles = {
     backgroundColor: checkedBackGround,
     border: borderColor,
-}
+  }
 
   return (
     <div 
