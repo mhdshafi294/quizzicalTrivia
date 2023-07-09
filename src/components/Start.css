@@ -1,5 +1,5 @@
 .start{
-    background-image: url(../../public/blobs.png), url(../../public/blob5.png);
+    background-image: url(/public/blobs.png), url(/public/blob5.png);
     background-position: left bottom, right top;
     background-repeat: no-repeat, no-repeat;
     width: 100%;
